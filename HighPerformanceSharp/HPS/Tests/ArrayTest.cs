@@ -8,11 +8,6 @@ namespace HPS.Tests
     {
         private int[] array;
 
-        public ArrayTest()
-        {
-            Console.WriteLine($"Array reverse test");
-        }
-
         private void FillData(int size)
         {
             array = new int[size];

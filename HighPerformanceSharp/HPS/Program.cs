@@ -11,12 +11,48 @@ namespace HPS
     {
         static void Main(string[] args)
         {
+            ITest[] availableTests = new ITest[]
+            {
+                new ArrayTest(),
+            };
 
             var line = "";
             while (true)
             {
-                PerformTest(new ArrayTest(), Level.Extreme, 20);
-                Console.ReadLine();
+                PrintAvailableTests(availableTests);
+
+                line = Console.ReadLine();
+                int number = -1;
+                int.TryParse(line, out number);
+
+                Console.WriteLine("Select level:");
+                Console.WriteLine(" (0) - Easy");
+                Console.WriteLine(" (1) - Medium");
+                Console.WriteLine(" (2) - Hard");
+                Console.WriteLine(" (3) - Extreme");
+                line = Console.ReadLine();
+
+                int levelNumber;
+                int.TryParse(line, out levelNumber);
+
+
+                if (number >= 0 && number <= availableTests.Length - 1 && levelNumber >= 0 && levelNumber <= 3)
+                {
+                    PerformTest(availableTests[number], (Level) levelNumber, 20);
+                }
+                else
+                {
+                    Console.WriteLine("Wrong input");
+                }
+            }
+        }
+
+        private static void PrintAvailableTests(ITest[] availableTests)
+        {
+            Console.WriteLine("Available Tests: ");
+            for (int i = 0; i < availableTests.Length; i++)
+            {
+                Console.WriteLine($" ({i}) - {availableTests[i].GetType().Name}");
             }
         }
 
@@ -26,6 +62,7 @@ namespace HPS
             List<long> timeResultsB = new List<long>();
             List<long> timeResultsC = new List<long>();
 
+            Console.WriteLine($"Selected level {level.ToString()}");
             for (int i = 0; i < testCount; i++)
             {
                 testClass.Initialize(level);
@@ -35,7 +72,7 @@ namespace HPS
 
                 if (testClass.TestA() == false)
                 {
-                    throw  new Exception("TestA returned false");
+                    throw new Exception("TestA returned false");
                 }
 
                 stopwatch.Stop();
@@ -43,7 +80,7 @@ namespace HPS
             }
 
             Console.WriteLine($"TestA: {CountResults(timeResultsA)}ms");
-            
+
 
 
             for (int i = 0; i < testCount; i++)

@@ -24,9 +24,9 @@ namespace HPS.Tests
 
     public enum Level
     {
-        Easy,
-        Medium,
-        Hard,
-        Extreme
+        Easy= 0,
+        Medium= 1,
+        Hard = 2,
+        Extreme= 3
     }
 }
