@@ -6,7 +6,7 @@ namespace HPS.Tests
 {
     public interface ITest
     {
-        public abstract void Initialize(Level);
+        public abstract void Initialize(Level level);
 
         public virtual bool TestA()
         {

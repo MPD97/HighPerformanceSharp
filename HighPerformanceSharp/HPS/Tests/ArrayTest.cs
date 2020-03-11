@@ -15,8 +15,6 @@ namespace HPS.Tests
 
         private void FillData(int size)
         {
-            Console.WriteLine($"Initialize table with size of {size}");
-
             array = new int[size];
             for (int i = 0; i < array.Length; i++)
             {
@@ -29,22 +27,22 @@ namespace HPS.Tests
             {
                 case Level.Easy:
                     {
-                        FillData(500);
+                        FillData(10000);
                         break;
                     }
                 case Level.Medium:
                     {
-                        FillData(10000);
+                        FillData(1000000);
                         break;
                     }
                 case Level.Hard:
                     {
-                        FillData(100000);
+                        FillData(10000000);
                         break;
                     }
                 case Level.Extreme:
                     {
-                        FillData(1000000);
+                        FillData(100000000);
                         break;
                     }
             }
@@ -66,7 +64,7 @@ namespace HPS.Tests
             int[] temp = new int[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
-                temp[i] = array[array.Length - 1 - i];
+                temp[temp.Length - 1 - i] = array[i];
             }
 
             return true;
