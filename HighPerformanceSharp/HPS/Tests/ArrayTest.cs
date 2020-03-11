@@ -75,5 +75,11 @@ namespace HPS.Tests
 
             return true;
         }
+        public bool TestD()
+        { 
+            Array.Reverse(array, 0, array.Length);
+            return true;
+        }
+
     }
 }

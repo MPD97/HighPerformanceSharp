@@ -61,6 +61,8 @@ namespace HPS
             List<long> timeResultsA = new List<long>();
             List<long> timeResultsB = new List<long>();
             List<long> timeResultsC = new List<long>();
+            List<long> timeResultsD = new List<long>();
+            List<long> timeResultsE = new List<long>();
 
             Console.WriteLine($"Selected level {level.ToString()}");
             for (int i = 0; i < testCount; i++)
@@ -116,6 +118,41 @@ namespace HPS
                 timeResultsC.Add(stopwatch.ElapsedMilliseconds);
             }
             Console.WriteLine($"TestC: {CountResults(timeResultsC)}ms");
+
+
+            for (int i = 0; i < testCount; i++)
+            {
+                testClass.Initialize(level);
+
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
+                if (testClass.TestD() == false)
+                {
+                    throw new Exception("TestD returned false");
+                }
+
+                stopwatch.Stop();
+                timeResultsD.Add(stopwatch.ElapsedMilliseconds);
+            }
+
+            Console.WriteLine($"TestD: {CountResults(timeResultsD)}ms");
+            for (int i = 0; i < testCount; i++)
+            {
+                testClass.Initialize(level);
+
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+
+                if (testClass.TestE() == false)
+                {
+                    throw new Exception("TestE returned false");
+                }
+
+                stopwatch.Stop();
+                timeResultsE.Add(stopwatch.ElapsedMilliseconds);
+            }
+            Console.WriteLine($"TestE: {CountResults(timeResultsE)}ms");
 
         }
 

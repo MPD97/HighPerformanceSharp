@@ -10,15 +10,23 @@ namespace HPS.Tests
 
         public virtual bool TestA()
         {
-            return false;
+            return true;
         }
         public virtual bool TestB()
         {
-            return false;
+            return true;
         }
         public virtual bool TestC()
         {
-            return false;
+            return true;
+        }
+        public virtual bool TestD()
+        {
+            return true;
+        }
+        public virtual bool TestE()
+        {
+            return true;
         }
     }
 
