@@ -6,7 +6,7 @@ namespace HPS.Tests
 {
     public interface ITest
     {
-        public abstract void Initialize();
+        public abstract void Initialize(Level);
 
         public virtual bool TestA()
         {
@@ -20,5 +20,13 @@ namespace HPS.Tests
         {
             return false;
         }
+    }
+
+    public enum Level
+    {
+        Easy,
+        Medium,
+        Hard,
+        Extreme
     }
 }
