@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 
 namespace HPS
 {
@@ -6,7 +8,19 @@ namespace HPS
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            var line = "";
+            while (true)
+            {
+
+
+
+
+                line = Console.ReadLine();
+
+
+            }
+
         }
     }
 }
