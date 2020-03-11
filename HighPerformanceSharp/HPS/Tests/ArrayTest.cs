@@ -52,15 +52,35 @@ namespace HPS.Tests
 
         public bool TestA()
         {
-            return false;
+            int[] temp = new int[array.Length];
+            int index = 0;
+            foreach (var element in array)
+            {
+                temp[temp.Length - 1 - index++] = element;
+            }
+
+            return true;
         }
         public bool TestB()
         {
-            return false;
+            int[] temp = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                temp[i] = array[array.Length - 1 - i];
+            }
+
+            return true;
         }
         public bool TestC()
         {
-            return false;
+            for (int i = 0; i < array.Length / 2; i++)
+            {
+                int temp = array[i];
+                array[i] = array[array.Length - i - 1];
+                array[array.Length - i - 1] = temp;
+            }
+
+            return true;
         }
     }
 }
