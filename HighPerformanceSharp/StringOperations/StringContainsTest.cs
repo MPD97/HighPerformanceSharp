@@ -72,7 +72,7 @@ namespace StringOperations
             return (char)generator.Next(65, 91);
         }
 
-        public bool Test(string text)
+        public virtual bool Test(string text)
         {
             LastArgument = text;
 
@@ -83,7 +83,7 @@ namespace StringOperations
             return result;
         }
 
-        public bool Test(char text)
+        public virtual bool Test(char text)
         {
             LastArgument = text.ToString();
 
