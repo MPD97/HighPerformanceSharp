@@ -6,7 +6,7 @@ namespace StringOperations
 {
     partial interface ITestString
     {
-        public void Initialize();
+        public void Initialize(long size);
         public void Test();
         public void Validate();
     }
