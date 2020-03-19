@@ -7,6 +7,8 @@ namespace StringOperations
     public class StringContainsTest : ITestString
     {
         private StringBuilder StringBuilder { get; set; }
+        private bool LastTestResult { get; set; }
+        private string LastArgument { get; set; }
 
         public void Initialize(long size)
         {
@@ -36,14 +38,29 @@ namespace StringOperations
             }
         }
 
-        public void Test()
+        public bool Test(string text)
         {
-            throw new NotImplementedException();
+            bool result = StringBuilder.ToString().Contains(text);
+
+            LastTestResult = result;
+
+            return result;
         }
 
-        public void Validate()
+        public bool Test(char text)
+        {  
+            bool result = StringBuilder.ToString().Contains(text);
+            
+            LastTestResult = result;
+
+            return result;
+        }
+
+        public bool Validate()
         {
-            throw new NotImplementedException();
+            bool realResult = StringBuilder.ToString().Contains(LastArgument);
+
+            return LastTestResult == realResult;
         }
     }
 }

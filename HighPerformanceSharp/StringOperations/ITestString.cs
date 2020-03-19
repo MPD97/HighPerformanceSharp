@@ -7,7 +7,10 @@ namespace StringOperations
     partial interface ITestString
     {
         public void Initialize(long size);
-        public void Test();
-        public void Validate();
+
+        public bool Test(string text);
+        public bool Test(char text);
+
+        public bool Validate();
     }
 }
