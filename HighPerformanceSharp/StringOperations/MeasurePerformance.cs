@@ -9,15 +9,30 @@ namespace StringOperations
     {
         private Stopwatch Stopwatch { get; set; } = new Stopwatch();
 
-        public void Start()
+        public void StartTimer()
         {
             Stopwatch.Restart();
         }
 
-        public Stopwatch GetResult()
+        public void StopTimer()
         {
             Stopwatch.Stop();
-            return Stopwatch;
+        }
+
+        public long StartTest(Action action, int testCount)
+        {
+            List<long> times = new List<long>();
+            long result = 0;
+            for (int i = 0; i < testCount; i++)
+            {
+                action.Invoke();
+                times.Add(Stopwatch.ElapsedMilliseconds);
+            }
+            foreach (var time in times)
+            {
+                result += time;
+            }
+            return result / testCount;
         }
     }
 }

@@ -6,6 +6,11 @@ namespace StringOperations
 {
     partial interface ITestString
     {
+        public char GetExistingChar();
+        public char GetNotExistingChar();
+        public string GetExistingString();
+        public string GetNotExistingString();
+
         public void Initialize(long size);
 
         public bool Test(string text);
